@@ -22,7 +22,7 @@
     "superInFunctions": true,
     "templateStrings": true,
     "unicodeCodePointEscapes": true,
-    "globalReturn": true
+    "globalReturn": true,
   },
   "env": {
     "mocha": true,
