@@ -28,7 +28,7 @@
     "node": true
   },
   "globals": {
-    "MyLibrary": true,
+    "GuesstimateGraphSimulator": true,
     "sinon": true,
     "spy": true,
     "stub": true,

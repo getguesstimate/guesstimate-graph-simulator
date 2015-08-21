@@ -1,9 +1,9 @@
-# es6-library-starter
-[![Build Status](https://travis-ci.org/UWFosterIT/es6-library-starter.svg?branch=master)](https://travis-ci.org/UWFosterIT/es6-library-starter)
-[![Code Climate](https://codeclimate.com/github/UWFosterIT/es6-library-starter/badges/gpa.svg)](https://codeclimate.com/github/UWFosterIT/es6-library-starter)
-[![Test Coverage](https://codeclimate.com/github/UWFosterIT/es6-library-starter/badges/coverage.svg)](https://codeclimate.com/github/UWFosterIT/es6-library-starter)
-[![Dependency Status](https://david-dm.org/UWFosterIT/es6-library-starter.svg)](https://david-dm.org/UWFosterIT/es6-library-starter)
-[![devDependency Status](https://david-dm.org/UWFosterIT/es6-library-starter/dev-status.svg)](https://david-dm.org/UWFosterIT/es6-library-starter#info=devDependencies)
+# guesstimate-graph-simulator
+[![Build Status](https://travis-ci.org/getguesstimate/guesstimate-graph-simulator.svg?branch=master)](https://travis-ci.org/getguesstimate/guesstimate-graph-simulator)
+[![Code Climate](https://codeclimate.com/github/getguesstimate/guesstimate-graph-simulator/badges/gpa.svg)](https://codeclimate.com/github/getguesstimate/guesstimate-graph-simulator)
+[![Test Coverage](https://codeclimate.com/github/getguesstimate/guesstimate-graph-simulator/badges/coverage.svg)](https://codeclimate.com/github/getguesstimate/guesstimate-graph-simulator)
+[![Dependency Status](https://david-dm.org/getguesstimate/guesstimate-graph-simulator.svg)](https://david-dm.org/getguesstimate/guesstimate-graph-simulator)
+[![devDependency Status](https://david-dm.org/getguesstimate/guesstimate-graph-simulator/dev-status.svg)](https://david-dm.org/getguesstimate/guesstimate-graph-simulator#info=devDependencies)
 
 Author libraries in ES6 for Node. By design this does not include browser support. If you also need browser support use the [starter](https://www.npmjs.com/package/6to5-library-boilerplate) that inspired this one.
 
@@ -20,7 +20,7 @@ Update the metadata about the project, including the name in the `LICENSE`
 and the `package.json` information.
 
 Write your code in `src`. The primary file is `index.js` ([although the filename
-can be changed](https://github.com/UWFosterIT/es6-library-starter#i-want-to-change-the-primary-source-file)).
+can be changed](https://github.com/getguesstimate/guesstimate-graph-simulator#i-want-to-change-the-primary-source-file)).
 
 Run `gulp build` to compile the source into a distributable format.
 
@@ -62,12 +62,12 @@ This starter eslint to lint your source and tests. To change the rules, edit the
 
 An example of how to consume this module as is would be something like the following.
 
-    npm install es6-library-starter --save
+    npm install guesstimate-graph-simulator --save
     touch consumer.js
 
 Now edit consumer.js to include the following code
 
-    var MyLibrary = require('es6-library-starter');
+    var MyLibrary = require('guesstimate-graph-simulator');
     console.log(MyLibrary.mainFn());
     console.log(MyLibrary.multiply(5,5));
 
@@ -130,7 +130,7 @@ The primary source file for the library is `src/index.js`. Only the files that t
 
 In the simplest case, you just need to install the module and use it in your scripts. If you want to access the module itself in your unit test files, you will need to set up the test environment to support the module. To do this:
 
-1. Load the module in the [test setup file](https://github.com/UWFosterIT/es6-library-starter/blob/master/test/setup/setup.js).
+1. Load the module in the [test setup file](https://github.com/getguesstimate/guesstimate-graph-simulator/blob/master/test/setup/setup.js).
   Attach any exported variables to global object if you'll be using them in your tests.
 2. Update both `.jshintrc` files to include any new global variable that you have added
 3. Add those same global variables to the `mochaGlobals` array in `package.json` under

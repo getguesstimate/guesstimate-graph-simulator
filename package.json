@@ -1,7 +1,7 @@
 {
-  "name": "es6-library-starter",
-  "version": "2.0.4",
-  "description": "Author libraries in ES6 for Node.",
+  "name": "guesstimate-graph-simulator",
+  "version": "0.1.0",
+  "description": "Guesstimate Graphs",
   "main": "dist/library-dist.js",
   "scripts": {
     "test": "gulp",
@@ -10,27 +10,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/UWFosterIT/es6-library-starter.git"
+    "url": "https://github.com/getguesstimate/guesstimate-graph-simulator"
   },
   "keywords": [
-    "boilerplate",
-    "es6",
-    "node",
-    "starter",
-    "kit",
-    "transpile",
-    "babel"
+    "guesstimate",
+    "statistics",
+    "estimates"
   ],
-  "author": "Marc Miles",
+  "author": "Ozzie Gooen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/UWFosterIT/es6-library-starter.git/issues"
+    "url": "https://github.com/getguesstimate/guesstimate-graph-simulator.git/issues"
   },
-  "homepage": "https://github.com/UWFosterIT/es6-library-starter",
+  "homepage": "https://github.com/getguesstimate/guesstimate-graph-simulator.git/issues",
   "devDependencies": {
     "babel": "^4.7.12",
     "babel-eslint": "^2.0.2",
-    "backbone": "1.1.2",
     "chai": "^2.1.2",
     "del": "^1.1.1",
     "eslint": "^0.17.0",
@@ -48,21 +43,23 @@
     "gulp-sourcemaps": "^1.5.0",
     "gulp-uglifyjs": "^0.6.1",
     "isparta": "^2.2.0",
-    "lodash": "^2.4.1",
     "mkdirp": "^0.5.0",
     "mocha": "^2.2.1",
-    "numeral": "^1.5.3",
     "sinon": "^1.14.1",
     "sinon-chai": "^2.7.0"
   },
   "to5BoilerplateOptions": {
     "entryFileName": "repo_graph",
-    "exportVarName": "RepoGraph",
+    "exportVarName": "GuesstimateGraphSimulator",
     "mochaGlobals": [
       "stub",
       "spy",
       "expect"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "backbone": "1.1.2",
+    "numeral": "^1.5.3",
+    "lodash": "^2.4.1"
+  }
 }
