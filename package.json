@@ -1,6 +1,6 @@
 {
   "name": "guesstimate-graph-simulator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Guesstimate Graphs",
   "main": "dist/library-dist.js",
   "scripts": {
