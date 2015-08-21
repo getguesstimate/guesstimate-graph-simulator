@@ -3,11 +3,12 @@ var NodeCollection = require('./collections/nodecollection');
 var EdgeCollection = require('./collections/edgecollection');
 
 class RepoGraph {
+
   constructor(repo){
-    var defaultData = { nodes: [], edges: []  };
-    var data = repo.data || defaultData;
-    this.nodes = new NodeCollection(data.nodes, this);
-    this.edges = new EdgeCollection(data.edges, this);
+    var defaults = {data: { nodes: [], edges: []  }};
+    var info = _.defaults(repo, defaults);
+    this.nodes = new NodeCollection(info.data.nodes, this);
+    this.edges = new EdgeCollection(info.data.edges, this);
     this.unsavedChanges = false;
     this.propogate();
   }

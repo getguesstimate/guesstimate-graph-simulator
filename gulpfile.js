@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var nodeDebug = require('gulp-node-debug');
+
 var $ = require('gulp-load-plugins')({
   replaceString: /^gulp(-|\.)([0-9]+)?/
 });
@@ -19,8 +21,19 @@ const exportFileName    = path.basename(mainFile, path.extname(mainFile));
 function test() {
   return gulp.src(['test/setup/node.js', 'test/unit/**/*.js'], {read: false})
     .pipe($.plumber())
-    .pipe($.mocha({reporter: 'dot', globals: config.mochaGlobals}));
+    .pipe($.mocha({reporter: 'dot', globals: config.mochaGlobals}))
 }
+
+gulp.task('debugTest', function() {
+  var mochaScript = path.join(__dirname, 'node_modules/mocha/bin/_mocha');
+
+  gulp.src(['test/setup/node.js', 'test/unit/**/*.js'])
+    .pipe(nodeDebug({
+      debugBrk: true,
+      script: ['--watch'],
+    }));
+
+});
 
 // Remove the build files
 gulp.task('clean', function(cb) {
