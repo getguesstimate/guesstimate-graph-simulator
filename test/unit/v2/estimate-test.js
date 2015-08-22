@@ -1,11 +1,11 @@
 import Estimate from '../../../src/v2/estimate';
 import _ from 'lodash';
 
-describe.only('Estimate', () => {
+describe('Estimate', () => {
   var estimate;
 
   describe('with id, name, source', () => {
-    const options = { value: 300 };
+    const options = { value: 300, distribution: { value: 300 } };
 
     beforeEach(() => {
       estimate = new Estimate(options);

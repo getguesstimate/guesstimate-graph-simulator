@@ -1,13 +1,14 @@
 import _ from 'lodash';
-import uid from 'gen-uid';
+import Distribution from './distribution';
 
 class Estimate {
   constructor(options) {
     this.value = options.value;
+    this.distribution = options.distribution || new Distribution({value: this.value});
   }
 
   toJSON() {
-    return _.pick(this, 'value');
+    return _.pick(this, 'value', 'distribution');
   }
 }
 
