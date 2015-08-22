@@ -1,4 +1,4 @@
-var functionOperations = require('../lib/function_operations');
+var functionOperations = require('../lib/function_operations')
 var AbstractNode = require('./abstract_node');
 var _ = require('lodash');
 

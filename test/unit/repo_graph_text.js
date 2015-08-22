@@ -49,7 +49,7 @@ describe('RepoGraph', () => {
     });
 
 
-    it.only('has four node', () => {
+    it('has four node', () => {
       expect(graph.nodes.length).to.equal(4);
     });
 
