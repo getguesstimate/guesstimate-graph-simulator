@@ -10,8 +10,13 @@ class Metric {
     this.estimates = info.estimates && _.map(info.estimates, function(n){ return new Estimate(n); });
   }
 
+  distribution() {
+    return this.estimates[0].distribution;
+  }
+
   toJSON() {
-    return _.pick(this, 'id', 'name');
+    const estimates = _.map(this.estimates, function(n){ return n.toJSON(); });
+    return {id: this.id, name: this.name, estimates: estimates};
   }
 
   source() {

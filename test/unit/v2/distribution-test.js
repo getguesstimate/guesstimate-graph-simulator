@@ -4,7 +4,7 @@ import _ from 'lodash';
 describe('Distribution', () => {
   var distribution;
 
-  describe('with id, name, source', () => {
+  describe('#constructor', () => {
     const options = { value: 300 };
 
     beforeEach(() => {
