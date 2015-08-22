@@ -18,7 +18,7 @@ describe('Metric', () => {
       expect(metric.source).to.equal(3);
     });
 
-    it.only('converts to json', () => {
+    it('converts to json', () => {
       expect(metric.toJSON()).to.deep.equal(info);
     });
   });
