@@ -1,13 +1,13 @@
 import Page from '../../../src/v2/page';
-var _ = require('lodash');
+import _ from 'lodash';
 
-describe.only('Page', () => {
+describe('Page', () => {
   var page;
 
   const json = { metrics:
     [
-      {id: '123', name: 'Cool Graph', source: 3 },
-      {id: '124', name: 'Cooler Graph', source: 5 }
+      {id: '123', name: 'Cool Graph' },
+      {id: '124', name: 'Cooler Graph' }
     ]
   };
 

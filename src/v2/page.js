@@ -1,5 +1,5 @@
 import Metric from './metric';
-var _ = require('lodash');
+import _ from 'lodash';
 
 class Page {
   constructor(json) {
