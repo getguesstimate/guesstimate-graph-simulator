@@ -1,4 +1,4 @@
-import Estimate from '../../../src/v2/estimate';
+import Estimate from '../../src/estimate';
 import _ from 'lodash';
 
 describe('Estimate', () => {

@@ -1,4 +1,4 @@
-import Page from '../../../src/v2/page';
+import Page from '../../src/page';
 import _ from 'lodash';
 
 describe('Page', () => {

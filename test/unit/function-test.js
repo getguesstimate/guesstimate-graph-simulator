@@ -1,4 +1,4 @@
-import Funct from '../../../src/v2/funct';
+import Funct from '../../src/funct';
 import _ from 'lodash';
 
 describe('Function', () => {

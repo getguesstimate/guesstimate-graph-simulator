@@ -1,4 +1,4 @@
-import Distribution from '../../../src/v2/distribution';
+import Distribution from '../../src/distribution';
 import _ from 'lodash';
 
 describe('Distribution', () => {

@@ -1,4 +1,4 @@
-import Metric from '../../../src/v2/metric';
+import Metric from '../../src/metric';
 import _ from 'lodash';
 
 describe('Metric', () => {
