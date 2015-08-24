@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 describe('Metric', () => {
   var metric;
-  const info = { id: '123', name: 'Cool Graph', estimates: [{ value: 300, distribution: { value: 300 } }] };
+  const info = { id: '123', name: 'Cool Graph', guesstimates: [{ distribution: { value: 300 }, estimate: {value: 300} }] };
 
   beforeEach(() => {
     metric = new Metric(info);
@@ -34,7 +34,7 @@ describe('Metric', () => {
 
   describe('#distribution', () => {
     it('is correct', () => {
-      expect(metric.distribution()).to.deep.equal(metric.estimates[0].distribution);
+      expect(metric.distribution()).to.deep.equal(metric.guesstimates[0].distribution);
     });
   });
 });

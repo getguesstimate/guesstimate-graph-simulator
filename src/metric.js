@@ -1,26 +1,26 @@
-import Estimate from './estimate';
+import Guesstimate from './guesstimate';
 
 import uid from 'gen-uid';
 import _ from 'lodash';
 
 class Metric {
-  constructor(info) {
-    this.id = info.id || uid.token();
-    this.name = info.name;
-    this.estimates = info.estimates && _.map(info.estimates, function(n){ return new Estimate(n); });
+  constructor(options) {
+    this.id = options.id || uid.token();
+    this.name = options.name;
+    this.guesstimates = options.guesstimates && _.map(options.guesstimates, function(n){ return new Guesstimate(n); });
   }
 
   distribution() {
-    return this.estimates[0].distribution;
+    return this.guesstimates[0].distribution;
   }
 
   toJSON() {
-    const estimates = _.map(this.estimates, function(n){ return n.toJSON(); });
-    return {id: this.id, name: this.name, estimates: estimates};
+    const guesstimates = _.map(this.guesstimates, function(n){ return n.toJSON(); });
+    return {id: this.id, name: this.name, guesstimates: guesstimates};
   }
 
   source() {
-    return (this.estimates && this.estmates[0]) || (this.functions && this.functions[0]);
+    return this.guesstimates && this.guesstimates[0];
   }
 }
 

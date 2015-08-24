@@ -6,8 +6,8 @@ describe('Page', () => {
 
   const json = { metrics:
     [
-      {id: '123', name: 'Cool Graph', estimates: [] },
-      {id: '124', name: 'Cooler Graph', estimates: [] }
+      {id: '123', name: 'Cool Graph', guesstimates: [] },
+      {id: '124', name: 'Cooler Graph', guesstimates: [] }
     ]
   };
 
