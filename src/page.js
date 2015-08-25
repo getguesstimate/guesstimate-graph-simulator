@@ -2,8 +2,9 @@ import Metric from './metric';
 import _ from 'lodash';
 
 class Page {
-  constructor(json) {
-    this.metrics = _.map(json.metrics, function(n){ return new Metric(n); });
+  constructor(options) {
+    let that = this;
+    this.metrics = options.metrics && options.metrics.map(n => this._setupMetric(n));
   }
 
   toJSON() {
@@ -12,6 +13,11 @@ class Page {
   }
 
   toCytoscape(editingMetricId) {
+  }
+
+  _setupMetric(n) {
+    let options = _.merge(_.clone(n), {page: this});
+    return new Metric(options);
   }
 }
 

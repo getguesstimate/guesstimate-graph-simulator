@@ -7,6 +7,7 @@ class Funct {
     this.distribution = options.distribution;
     this.inputs = options.inputs || [];
     this.function_type = options.function_type || 'addition';
+    this.guesstimate = options.guesstimate;
   }
 
   toJSON() {

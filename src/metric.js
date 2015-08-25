@@ -7,7 +7,9 @@ class Metric {
   constructor(options) {
     this.id = options.id || uid.token();
     this.name = options.name;
-    this.guesstimates = options.guesstimates && _.map(options.guesstimates, function(n){ return new Guesstimate(n); });
+    this.guesstimates = options.guesstimates && options.guesstimates.map(n => this._setupGuesstimate(n));
+    this.page = options.page;
+    return this;
   }
 
   distribution() {
@@ -19,8 +21,9 @@ class Metric {
     return {id: this.id, name: this.name, guesstimates: guesstimates};
   }
 
-  source() {
-    return this.guesstimates && this.guesstimates[0];
+  _setupGuesstimate(n) {
+    let options = _.merge(_.clone(n), {metric: this});
+    return new Guesstimate(options);
   }
 }
 

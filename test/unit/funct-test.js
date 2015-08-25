@@ -24,7 +24,8 @@ describe('Function', () => {
     });
 
     it('converts to json', () => {
-      expect(funct.toJSON()).to.deep.equal(options);
+      const expecting = _.pick(options, 'inputs', 'function_type');
+      expect(funct.toJSON()).to.deep.equal(expecting);
     });
   });
 });

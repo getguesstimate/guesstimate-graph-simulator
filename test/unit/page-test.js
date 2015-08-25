@@ -21,6 +21,7 @@ describe('Page', () => {
     });
 
     it('has first correct metric', () => {
+      expect(page.metrics[0].page).to.deep.equal(page);
       expect(page.metrics[0].toJSON()).to.deep.equal(json.metrics[0]);
     });
   });

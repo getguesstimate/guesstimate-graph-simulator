@@ -1,4 +1,5 @@
 import Guesstimate from '../../src/guesstimate';
+import Funct from '../../src/funct';
 import _ from 'lodash';
 
 describe('Guesstimate', () => {
@@ -28,7 +29,8 @@ describe('Guesstimate', () => {
 
     describe('#constructor', () => {
       it('saves function', () => {
-        expect(guesstimate.func.function_type).to.equal('addition');
+        expect(guesstimate.funct).to.be.an.instanceOf(Funct);
+        expect(guesstimate.funct.guesstimate).to.deep.equal(guesstimate);
       });
     });
 
