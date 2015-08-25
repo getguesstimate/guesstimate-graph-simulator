@@ -3,7 +3,6 @@ import _ from 'lodash';
 
 class Page {
   constructor(options) {
-    let that = this;
     this.metrics = options.metrics && options.metrics.map(n => this._setupMetric(n));
   }
 

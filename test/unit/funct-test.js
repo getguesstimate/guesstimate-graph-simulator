@@ -28,4 +28,25 @@ describe('Function', () => {
       expect(funct.toJSON()).to.deep.equal(expecting);
     });
   });
+
+  describe('#analyzeDistribution', function() {
+    it('updates its distribution', () => {
+      let distributions = [new Distribution({value: 5}), new Distribution({value: 23})];
+      funct.analyzeDistribution(distributions);
+      expect(funct.distribution.value).to.equal(28);
+    });
+  });
+
+  describe('#_calculateDistribution', function() {
+    it('adds distributions', () => {
+      let distributions = [new Distribution({value: 5}), new Distribution({value: 23})];
+      expect(funct._calculateDistribution(distributions)).to.equal(28);
+    });
+  });
+
+  describe('#_functionType', function() {
+    it('is addition', () => {
+      expect(funct._functionType().name).to.equal('addition');
+    });
+  });
 });
