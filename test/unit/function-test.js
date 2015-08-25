@@ -1,17 +1,24 @@
 import Funct from '../../src/funct';
+import Distribution from '../../src/distribution';
 import _ from 'lodash';
 
 describe('Function', () => {
   var funct;
-  const options = { inputs: ['234', '3455'], function_type: 'addition' };
+  const distribution = new Distribution({value: 300});
+
+  const options = {
+    distribution: distribution,
+    inputs: ['234', '3455'],
+    function_type: 'addition'
+  };
 
   beforeEach(() => {
     funct = new Funct(options);
   });
 
   describe('#constructor', () => {
-
-    it('has inputs and function_type', () => {
+    it('has distribution, inputs, and function_type', () => {
+      expect(funct.distribution).to.deep.equal(options.distribution);
       expect(funct.inputs).to.equal(options.inputs);
       expect(funct.function_type).to.equal(options.function_type);
     });

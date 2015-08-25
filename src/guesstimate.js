@@ -8,7 +8,7 @@ class Guesstimate {
     this.distribution = new Distribution(options.distribution);
 
     switch(this._findType(options)) {
-    case 'func':
+    case 'funct':
       this.func = new Funct(_.merge(options.funct, {distribution: this.distribtuion}));
       break;
     case 'estimate':
@@ -20,7 +20,7 @@ class Guesstimate {
   toJSON() {
     let options = {distribution: this.distribution.toJSON()};
     switch(this._findType(this)) {
-    case 'func':
+    case 'funct':
       options.func = this.func.toJSON();
       break;
     case 'estimate':
@@ -32,7 +32,7 @@ class Guesstimate {
 
   _findType(object) {
     if (object.func !== undefined) {
-      return 'func';
+      return 'funct';
     } else if (object.estimate !== undefined) {
       return 'estimate';
     }

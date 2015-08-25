@@ -4,6 +4,7 @@ import _ from 'lodash';
 
 class Funct {
   constructor(options) {
+    this.distribution = options.distribution;
     this.inputs = options.inputs || [];
     this.function_type = options.function_type || 'addition';
   }

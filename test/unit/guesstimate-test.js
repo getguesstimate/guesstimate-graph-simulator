@@ -17,4 +17,25 @@ describe('Guesstimate', () => {
       });
     });
   });
+
+  describe('#A Function', () => {
+    var guesstimate;
+    const options = { distribution: {value: 40}, funct: {inputs: ['1', '2'], function_type: 'addition'} };
+
+    beforeEach(() => {
+      guesstimate = new Guesstimate(options);
+    });
+
+    describe('#constructor', () => {
+      it('saves function', () => {
+        expect(guesstimate.func.function_type).to.equal('addition');
+      });
+    });
+
+    describe('#toJSON', () => {
+      it('converts to json', () => {
+        expect(guesstimate.toJSON()).to.deep.equal(options);
+      });
+    });
+  });
 });
