@@ -2,7 +2,7 @@ var _ = require('lodash');
 
 var functionOperations = {
 
-  'multiplication': {
+  multiplication: {
     name: 'multiplication',
     sign: 'x',
     apply(inputs) {
@@ -11,7 +11,7 @@ var functionOperations = {
     }
   },
 
-  'addition': {
+  addition: {
     name: 'addition',
     sign: '+',
     apply(inputs){
