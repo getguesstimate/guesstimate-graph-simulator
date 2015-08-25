@@ -2,7 +2,7 @@ import Page from '../../src/page';
 import _ from 'lodash';
 
 describe('Page', () => {
-  let page, animalMetric, catMetric, dogMetric;
+  let page, animalMetric, catMetric, dogMetric, beingMetric;
 
   let json = {
     metrics:
@@ -20,16 +20,26 @@ describe('Page', () => {
     animalMetric = _.filter(page.metrics, 'id', '126')[0];
     catMetric = _.filter(page.metrics, 'id', '124')[0];
     dogMetric = _.filter(page.metrics, 'id', '125')[0];
+    beingMetric = _.filter(page.metrics, 'id', '128')[0];
   });
 
   describe('metric', () => {
-    describe('#analyze', () => {
-      it('updates the metric\'s distribution', () => {
-        animalMetric.analyze();
+    describe('#_analyze', () => {
+      it("updates the metric's distribution", () => {
+        animalMetric._analyze();
         expect(animalMetric.distribution().value).to.equal(800);
       });
     });
+
+    describe('#propagate', () => {
+      it("updates animal and beings' metric distribution", () => {
+        animalMetric.propagate();
+        expect(animalMetric.distribution().value).to.equal(800);
+        expect(beingMetric.distribution().value).to.equal(1300);
+      });
+    });
   });
+
 
   describe('funct', () => {
     describe('#findInputDistributions', () => {

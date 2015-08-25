@@ -7,8 +7,9 @@ describe('Page', () => {
   let json = {
     metrics:
       [
-        {id: '124', name: 'Cooler Graph', guesstimates: [{ distribution: { value: 300 }, estimate: {value: 300} }] },
-        {id: '125', name: 'Cooler Graph', guesstimates: [{ distribution: { value: 500 }, estimate: {value: 500} }] }
+        {id: '124', name: 'cats', guesstimates: [{ distribution: { value: 300 }, estimate: {value: 300} }] },
+        {id: '125', name: 'dogs', guesstimates: [{ distribution: { value: 500 }, estimate: {value: 500} }] },
+        {id: '126', name: 'animals', guesstimates: [{ distribution: {value: 40}, funct: {inputs: ['124', '125'], function_type: 'addition'} }] },
       ]
   };
 
@@ -18,8 +19,8 @@ describe('Page', () => {
   });
 
   describe('#constructor', () => {
-    it('has two metrics', () => {
-      expect(page.metrics.length).to.equal(2);
+    it('has three metrics', () => {
+      expect(page.metrics.length).to.equal(3);
     });
 
     it('has first correct metric', () => {
@@ -37,6 +38,12 @@ describe('Page', () => {
   describe('#metricIdToDistribution', () => {
     it('gives you the correct distribution', () => {
       expect(page.metricIdToDistribution('125').value).to.equal(500);
+    });
+  });
+
+  describe('#metricIdToOutputs', () => {
+    it('returns correct outputs', () => {
+      expect(page.metricIdToOutputs('125')[0].id).to.equal('126');
     });
   });
 });

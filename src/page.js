@@ -18,6 +18,10 @@ class Page {
     return _.filter(this.metrics, 'id', metricId)[0].distribution();
   }
 
+  metricIdToOutputs(metricId) {
+    return _.filter(this.metrics, (n) => n.hasInput(metricId));
+  }
+
   _setupMetric(n) {
     let options = _.merge(_.clone(n), {page: this});
     return new Metric(options);

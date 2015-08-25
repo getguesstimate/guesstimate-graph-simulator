@@ -21,9 +21,23 @@ class Metric {
     return {id: this.id, name: this.name, guesstimates: guesstimates};
   }
 
-  analyze() {
+  propagate() {
+    this._analyze();
+    _.each(this._outputs(), (n) => n.propagate());
+  }
+
+  hasInput(metricId) {
+    const funct = this.guesstimates[0].funct;
+    return funct && _.includes(funct.inputs, metricId);
+  }
+
+  _analyze() {
     const funct = this.guesstimates[0].funct;
     funct && funct.analyze();
+  }
+
+  _outputs() {
+    return this.page.metricIdToOutputs(this.id);
   }
 
   _setupGuesstimate(n) {
