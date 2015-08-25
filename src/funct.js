@@ -1,4 +1,5 @@
 import Distribution from './distribution';
+import Simulator from './simulator';
 
 import _ from 'lodash';
 import functionOperations from './lib/function_operations';
@@ -9,6 +10,7 @@ class Funct {
     this.distribution = options.distribution;
     this.inputs = options.inputs || [];
     this.function_type = options.function_type || 'addition';
+    this.simulator = new Simulator({samples: 5});
   }
 
   toJSON() {
@@ -24,9 +26,15 @@ class Funct {
     return this.inputs.map(n => this.guesstimate.metric.page.metricIdToDistribution(n));
   }
 
-  _calculateDistribution(distributions) {
-    const values = distributions.map(n => n.value);
-    return this._functionType().apply(values);
+  _calculateDistribution(distributions, analyzeOptions = this.defaultAnalyzeOptions()) {
+    const inputs = distributions.map(n => n.value);
+    return this.simulator.run(inputs, this._functionType());
+  }
+
+  defaultAnalyzeOptions() {
+    return {
+      samples: 10
+    };
   }
 
   _functionType() {

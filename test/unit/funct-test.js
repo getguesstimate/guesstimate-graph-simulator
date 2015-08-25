@@ -2,9 +2,9 @@ import Funct from '../../src/funct';
 import Distribution from '../../src/distribution';
 import _ from 'lodash';
 
-describe('Function', () => {
+describe.only('Function', () => {
   var funct;
-  const distribution = new Distribution({value: 300});
+  const distribution = new Distribution({value: [300]});
 
   const options = {
     distribution: distribution,
@@ -31,16 +31,16 @@ describe('Function', () => {
 
   describe('#analyze', function() {
     it('updates its distribution', () => {
-      let distributions = [new Distribution({value: 5}), new Distribution({value: 23})];
+      let distributions = [new Distribution({value: [5]}), new Distribution({value: [23]})];
       funct.analyze(distributions);
-      expect(funct.distribution.value).to.equal(28);
+      expect(funct.distribution.value).to.deep.equal([28]);
     });
   });
 
   describe('#_calculateDistribution', function() {
     it('adds distributions', () => {
-      let distributions = [new Distribution({value: 5}), new Distribution({value: 23})];
-      expect(funct._calculateDistribution(distributions)).to.equal(28);
+      let distributions = [new Distribution({value: [5]}), new Distribution({value: [23]})];
+      expect(funct._calculateDistribution(distributions)).to.deep.equal([28]);
     });
   });
 

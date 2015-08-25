@@ -5,13 +5,16 @@ describe('Page', () => {
   let page, animalMetric, catMetric, dogMetric, beingMetric;
 
   let json = {
+    monteCarlo: {
+      samples: 10
+    },
     metrics:
       [
-        {id: '124', name: 'cats', guesstimates: [{ distribution: { value: 300 }, estimate: {value: 300} }] },
-        {id: '125', name: 'dogs', guesstimates: [{ distribution: { value: 500 }, estimate: {value: 500} }] },
-        {id: '126', name: 'animals', guesstimates: [{ distribution: {value: 40}, funct: {inputs: ['124', '125'], function_type: 'addition'} }] },
-        {id: '127', name: 'humans', guesstimates: [{ distribution: { value: 500 }, estimate: {value: 500} }] },
-        {id: '128', name: 'beings', guesstimates: [{ distribution: {value: 40}, funct: {inputs: ['126', '127'], function_type: 'addition'} }] }
+        {id: '124', name: 'cats', guesstimates: [{ distribution: { value: [300] }, estimate: {value: 300} }] },
+        {id: '125', name: 'dogs', guesstimates: [{ distribution: { value: [500] }, estimate: {value: 500} }] },
+        {id: '126', name: 'animals', guesstimates: [{ distribution: {value: [40]}, funct: {inputs: ['124', '125'], function_type: 'addition'} }] },
+        {id: '127', name: 'humans', guesstimates: [{ distribution: { value: [500] }, estimate: {value: 500} }] },
+        {id: '128', name: 'beings', guesstimates: [{ distribution: {value: [40]}, funct: {inputs: ['126', '127'], function_type: 'addition'} }] }
       ]
   };
 
@@ -27,15 +30,15 @@ describe('Page', () => {
     describe('#_analyze', () => {
       it("updates the metric's distribution", () => {
         animalMetric._analyze();
-        expect(animalMetric.distribution().value).to.equal(800);
+        expect(animalMetric.distribution().value).to.deep.equal([800]);
       });
     });
 
     describe('#propagate', () => {
       it("updates animal and beings' metric distribution", () => {
         animalMetric.propagate();
-        expect(animalMetric.distribution().value).to.equal(800);
-        expect(beingMetric.distribution().value).to.equal(1300);
+        expect(animalMetric.distribution().value).to.deep.equal([800]);
+        expect(beingMetric.distribution().value).to.deep.equal([1300]);
       });
     });
   });
