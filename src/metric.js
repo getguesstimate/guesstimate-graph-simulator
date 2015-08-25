@@ -21,6 +21,11 @@ class Metric {
     return {id: this.id, name: this.name, guesstimates: guesstimates};
   }
 
+  analyze() {
+    const funct = this.guesstimates[0].funct;
+    funct && funct.analyze();
+  }
+
   _setupGuesstimate(n) {
     let options = _.merge(_.clone(n), {metric: this});
     return new Guesstimate(options);

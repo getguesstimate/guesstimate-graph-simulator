@@ -29,10 +29,10 @@ describe('Function', () => {
     });
   });
 
-  describe('#analyzeDistribution', function() {
+  describe('#analyze', function() {
     it('updates its distribution', () => {
       let distributions = [new Distribution({value: 5}), new Distribution({value: 23})];
-      funct.analyzeDistribution(distributions);
+      funct.analyze(distributions);
       expect(funct.distribution.value).to.equal(28);
     });
   });

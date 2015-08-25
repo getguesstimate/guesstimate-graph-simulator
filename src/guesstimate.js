@@ -9,7 +9,7 @@ class Guesstimate {
     this.metric = options.metric;
 
     const [type, typeKlass] = this._findType(options);
-    this[type] = new typeKlass(_.merge(_.clone(options[type]), {distribution: this.distribtuion, guesstimate: this}));
+    this[type] = new typeKlass(_.merge(_.clone(options[type]), {distribution: this.distribution, guesstimate: this}));
   }
 
   toJSON() {

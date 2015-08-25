@@ -19,9 +19,9 @@ const destinationFolder = path.dirname(mainFile);
 const exportFileName    = path.basename(mainFile, path.extname(mainFile));
 
 function test() {
-  return gulp.src(['test/setup/node.js', 'test/unit/**/*.js'], {read: false})
+  return gulp.src(['test/setup/node.js', 'test/unit/**/*.js', 'test/integration/**/*.js'], {read: false})
     .pipe($.plumber())
-    .pipe($.mocha({reporter: 'dot', globals: config.mochaGlobals}))
+    .pipe($.mocha({reporter: 'dot', globals: config.mochaGlobals}));
 }
 
 gulp.task('debugTest', function() {

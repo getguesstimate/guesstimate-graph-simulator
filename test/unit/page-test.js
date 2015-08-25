@@ -4,12 +4,14 @@ import _ from 'lodash';
 describe('Page', () => {
   var page;
 
-  const json = { metrics:
-    [
-      {id: '123', name: 'Cool Graph', guesstimates: [] },
-      {id: '124', name: 'Cooler Graph', guesstimates: [] }
-    ]
+  let json = {
+    metrics:
+      [
+        {id: '124', name: 'Cooler Graph', guesstimates: [{ distribution: { value: 300 }, estimate: {value: 300} }] },
+        {id: '125', name: 'Cooler Graph', guesstimates: [{ distribution: { value: 500 }, estimate: {value: 500} }] }
+      ]
   };
+
 
   beforeEach(() => {
     page = new Page(json);
@@ -29,6 +31,12 @@ describe('Page', () => {
   describe('#toJSON', () => {
     it('is correct', () => {
       expect(page.toJSON()).to.deep.equal(json);
+    });
+  });
+
+  describe('#metricIdToDistribution', () => {
+    it('gives you the correct distribution', () => {
+      expect(page.metricIdToDistribution('125').value).to.equal(500);
     });
   });
 });
