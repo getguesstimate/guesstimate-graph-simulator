@@ -1,8 +1,8 @@
 import Funct from '../../src/funct';
-import Distribution from '../../src/distribution';
+import Distribution from '../../src/distributions/point-distribution';
 import _ from 'lodash';
 
-describe.only('Function', () => {
+describe('Function', () => {
   var funct;
   const distribution = new Distribution({value: [300]});
 

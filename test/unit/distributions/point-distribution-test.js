@@ -1,17 +1,18 @@
-import Distribution from '../../src/distribution';
+import Distribution from '../../../src/distributions/point-distribution';
 import _ from 'lodash';
 
-describe('Distribution', () => {
+describe('PointDistribution', () => {
   var distribution;
 
   describe('#constructor', () => {
-    const options = { value: 300 };
+    const options = { type: 'point', value: 300 };
 
     beforeEach(() => {
       distribution = new Distribution(options);
     });
 
-    it('has value', () => {
+    it('has type and value', () => {
+      expect(distribution.type).to.equal('point');
       expect(distribution.value).to.equal(300);
     });
 

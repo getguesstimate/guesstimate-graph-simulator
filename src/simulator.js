@@ -15,7 +15,7 @@ class Simulator {
 
   sample(inputs, operation) {
     let samples = inputs.map(n => _.sample(n));
-    return operation(samples);
+    return operation.apply(samples);
   }
 }
 

@@ -7,12 +7,11 @@ describe('Page', () => {
   let json = {
     metrics:
       [
-        {id: '124', name: 'cats', guesstimates: [{ distribution: { value: 300 }, estimate: {value: 300} }] },
-        {id: '125', name: 'dogs', guesstimates: [{ distribution: { value: 500 }, estimate: {value: 500} }] },
-        {id: '126', name: 'animals', guesstimates: [{ distribution: {value: 40}, funct: {inputs: ['124', '125'], function_type: 'addition'} }] },
+        {id: '124', name: 'cats', guesstimates: [{ distribution: { type: 'point', value: 300 }, estimate: {value: 300} }] },
+        {id: '125', name: 'dogs', guesstimates: [{ distribution: { type: 'point', value: 500 }, estimate: {value: 500} }] },
+        {id: '126', name: 'animals', guesstimates: [{ distribution: { type: 'point', value: 40}, funct: {inputs: ['124', '125'], function_type: 'addition'} }] },
       ]
   };
-
 
   beforeEach(() => {
     page = new Page(json);

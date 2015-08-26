@@ -15,14 +15,14 @@ describe('Simulator', () => {
 
   describe('#run', function() {
     it('adds single numbers', () => {
-      let operation = functionOperations.addition.apply;
+      let operation = functionOperations.addition;
       let inputs = [[3], [4]];
       expect(simulator.run(inputs, operation)).to.deep.equal([7]);
     });
 
-    it.only('adds arrays', () => {
-      let operation = functionOperations.addition.apply;
-      let inputs = [[9,8,8], [8,3,9]];
+    it('adds arrays', () => {
+      let operation = functionOperations.addition;
+      let inputs = [[1,1,1,1,1], [6,6]];
       expect(simulator.run(inputs, operation)).to.deep.equal([7, 7, 7, 7, 7]);
     });
   });

@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 describe('Metric', () => {
   var metric;
-  const options = { id: '123', name: 'Cool Graph', guesstimates: [{ distribution: { value: 300 }, estimate: {value: 300} }] };
+  const options = { id: '123', name: 'Cool Graph', guesstimates: [{ distribution: { type: 'point', value: 300 }, estimate: {value: 300} }] };
 
   beforeEach(() => {
     metric = new Metric(options);

@@ -1,6 +1,4 @@
-import Distribution from './distribution';
 import Simulator from './simulator';
-
 import _ from 'lodash';
 import functionOperations from './lib/function_operations';
 

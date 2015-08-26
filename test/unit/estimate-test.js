@@ -1,5 +1,5 @@
 import Estimate from '../../src/estimate';
-import Distribution from '../../src/distribution';
+import Distribution from '../../src/distributions/point-distribution';
 import _ from 'lodash';
 
 describe('Estimate', () => {

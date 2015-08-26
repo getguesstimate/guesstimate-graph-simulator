@@ -133,7 +133,7 @@ gulp.task('test', ['lint-src', 'lint-test'], function() {
 });
 
 gulp.task('live', ['test'], function() {
-  gulp.watch(['src/*.js', 'test/*.js'], function() {
+  gulp.watch(['src/*.js', 'src/distributions/*.js', 'test/*.js', 'test/unit/*.js', 'test/unit/distributions/*.js'], function() {
     gulp.run('test');
   });
 });
