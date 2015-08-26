@@ -1,0 +1,8 @@
+languages:
+  Javascript: true
+engines:
+  eslint:
+    enabled: true
+paths:
+  - src/**/*.js
+  - test/**/*.js
