@@ -1,12 +1,12 @@
 import _ from 'lodash';
+
+import Funct from './funct';
+import Estimate from './estimate';
 import PointDistribution from './distributions/point-distribution';
 import ArrayDistribution from './distributions/array-distribution';
 import NormalDistribution from './distributions/normal-distribution';
 
-import Funct from './funct';
-import Estimate from './estimate';
-
-class Guesstimate {
+module.exports = class Guesstimate {
   constructor(options) {
     this.metric = options.metric;
 
@@ -46,6 +46,4 @@ class Guesstimate {
       return [null, null];
     }
   }
-}
-
-module.exports = Guesstimate;
+};

@@ -1,10 +1,10 @@
+import _ from 'lodash';
+
 import Simulator from '../../src/simulator';
 import functionOperations from '../../src/lib/function_operations';
 import PointDistribution from '../../src/distributions/point-distribution';
 import ArrayDistribution from '../../src/distributions/array-distribution';
 import NormalDistribution from '../../src/distributions/normal-distribution';
-
-import _ from 'lodash';
 
 describe('Simulator', () => {
   var simulator, operation;

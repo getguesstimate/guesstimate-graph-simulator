@@ -1,6 +1,7 @@
+import _ from 'lodash';
+
 import Metric from '../../src/metric';
 import Guesstimate from '../../src/guesstimate';
-import _ from 'lodash';
 
 describe('Metric', () => {
   var metric;
@@ -32,7 +33,7 @@ describe('Metric', () => {
     });
   });
 
-  describe('#toJson', () => {
+  describe('#toJSON', () => {
     it('converts to json', () => {
       expect(metric.toJSON()).to.deep.equal(options);
     });

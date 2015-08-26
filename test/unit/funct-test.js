@@ -1,7 +1,8 @@
+import _ from 'lodash';
+
 import Funct from '../../src/funct';
 import Guesstimate from '../../src/guesstimate';
 import PointDistribution from '../../src/distributions/point-distribution';
-import _ from 'lodash';
 
 describe('Function', () => {
   var guesstimate, funct;
@@ -28,7 +29,9 @@ describe('Function', () => {
       expect(funct.inputs).to.equal(functOptions.inputs);
       expect(funct.function_type).to.equal(functOptions.function_type);
     });
+  });
 
+  describe('#toJSON', () => {
     it('converts to json', () => {
       const expecting = _.pick(functOptions, 'inputs', 'function_type');
       expect(funct.toJSON()).to.deep.equal(expecting);

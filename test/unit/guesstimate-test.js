@@ -1,6 +1,7 @@
+import _ from 'lodash';
+
 import Guesstimate from '../../src/guesstimate';
 import Funct from '../../src/funct';
-import _ from 'lodash';
 
 describe('Guesstimate', () => {
   describe('#An Estimate', () => {

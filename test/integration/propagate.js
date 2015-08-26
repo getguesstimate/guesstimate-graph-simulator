@@ -1,5 +1,6 @@
-import Page from '../../src/page';
 import _ from 'lodash';
+
+import Page from '../../src/page';
 
 describe('Page', () => {
   let page, animalMetric, catMetric, dogMetric, beingMetric;

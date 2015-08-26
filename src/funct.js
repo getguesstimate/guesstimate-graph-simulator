@@ -1,8 +1,9 @@
-import Simulator from './simulator';
 import _ from 'lodash';
-import functionOperations from './lib/function_operations';
 
-class Funct {
+import functionOperations from './lib/function_operations';
+import Simulator from './simulator';
+
+module.exports = class Funct {
   constructor(options) {
     this.guesstimate = options.guesstimate;
     this.inputs = options.inputs || [];
@@ -22,12 +23,12 @@ class Funct {
     return this.inputs.map(n => this.guesstimate.metric.page.metricIdToDistribution(n));
   }
 
-  _calculateDistribution(distributions, analyzeOptions = this.defaultAnalyzeOptions()) {
+  _calculateDistribution(distributions, analyzeOptions = this._defaultAnalyzeOptions()) {
     let simulation = new Simulator({inputs: distributions, operation: this._functionType()});
     return simulation.run();
   }
 
-  defaultAnalyzeOptions() {
+  _defaultAnalyzeOptions() {
     return {
       samples: 10
     };
@@ -36,6 +37,4 @@ class Funct {
   _functionType() {
     return functionOperations[this.function_type];
   }
-}
-
-module.exports = Funct;
+};

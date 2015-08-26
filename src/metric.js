@@ -1,15 +1,14 @@
+import _ from 'lodash';
+import uid from 'gen-uid';
+
 import Guesstimate from './guesstimate';
 
-import uid from 'gen-uid';
-import _ from 'lodash';
-
-class Metric {
+module.exports = class Metric {
   constructor(options) {
     this.id = options.id || uid.token();
     this.name = options.name;
     this.guesstimates = options.guesstimates && options.guesstimates.map(n => this._setupGuesstimate(n));
     this.page = options.page;
-    return this;
   }
 
   distribution() {
@@ -17,13 +16,13 @@ class Metric {
   }
 
   toJSON() {
-    const guesstimates = _.map(this.guesstimates, function(n){ return n.toJSON(); });
+    const guesstimates = _.map(this.guesstimates, n => n.toJSON());
     return {id: this.id, name: this.name, guesstimates: guesstimates};
   }
 
   propagate() {
     this._analyze();
-    _.each(this._outputs(), (n) => n.propagate());
+    _.each(this._outputs(), n => n.propagate());
   }
 
   hasInput(metricId) {
@@ -44,6 +43,4 @@ class Metric {
     let options = _.merge(_.clone(n), {metric: this});
     return new Guesstimate(options);
   }
-}
-
-module.exports = Metric;
+};

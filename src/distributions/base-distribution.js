@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-class BaseDistribution {
+module.exports = class BaseDistribution {
   constructor(options) {
     this.type = options.distributionType;
     this.value = options.value;
@@ -9,7 +9,4 @@ class BaseDistribution {
   toJSON() {
     return _.pick(this, 'type', 'value');
   }
-
-}
-
-module.exports = BaseDistribution;
+};

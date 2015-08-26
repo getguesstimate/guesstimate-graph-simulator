@@ -1,8 +1,9 @@
 import _ from 'lodash';
-import BaseDistribution from './base-distribution';
 import Stochator from 'stochator';
 
-class NormalDistribution extends BaseDistribution {
+import BaseDistribution from './base-distribution';
+
+module.exports = class NormalDistribution extends BaseDistribution {
   constructor(options) {
     super(options);
     this.type = 'normal';
@@ -22,6 +23,4 @@ class NormalDistribution extends BaseDistribution {
   toJSON() {
     return _.pick(this, 'type', 'mean', 'stdev');
   }
-}
-
-module.exports = NormalDistribution;
+};

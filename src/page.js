@@ -1,17 +1,14 @@
-import Metric from './metric';
 import _ from 'lodash';
 
-class Page {
+import Metric from './metric';
+
+module.exports = class Page {
   constructor(options) {
     this.metrics = options.metrics && options.metrics.map(n => this._setupMetric(n));
   }
 
   toJSON() {
-    const metrics = _.map(this.metrics, function(n){ return n.toJSON(); });
-    return { metrics: metrics };
-  }
-
-  toCytoscape(editingMetricId) {
+    return {metrics: this.metrics.map(n => n.toJSON())};
   }
 
   metricIdToDistribution(metricId) {
@@ -19,13 +16,11 @@ class Page {
   }
 
   metricIdToOutputs(metricId) {
-    return _.filter(this.metrics, (n) => n.hasInput(metricId));
+    return _.filter(this.metrics, n => n.hasInput(metricId));
   }
 
   _setupMetric(n) {
     let options = _.merge(_.clone(n), {page: this});
     return new Metric(options);
   }
-}
-
-module.exports = Page;
+};

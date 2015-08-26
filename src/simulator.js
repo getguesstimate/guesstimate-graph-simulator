@@ -1,10 +1,10 @@
 import _ from 'lodash';
+
 import PointDistribution from './distributions/point-distribution';
 import ArrayDistribution from './distributions/array-distribution';
 
-// Accepts arrays as inputs and outputs
-
-class Simulator {
+// Accepts distributions as inputs and outputs
+module.exports = class Simulator {
   constructor(options) {
     this.inputs = options.inputs;
     this.operation = options.operation;
@@ -23,7 +23,7 @@ class Simulator {
   }
 
   _runRegular() {
-    const newValue = this._emptySamples().map( n => this._sample() );
+    const newValue = this._emptySamples().map(n => this._sample());
     return new ArrayDistribution({value: newValue});
   }
 
@@ -35,6 +35,4 @@ class Simulator {
     let samples = this.inputs.map(n => n.sample());
     return this.operation.apply(samples);
   }
-}
-
-module.exports = Simulator;
+};

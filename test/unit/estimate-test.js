@@ -12,18 +12,18 @@ describe('Estimate', () => {
   });
 
   describe('#constructor', () => {
-
     it('has value', () => {
       expect(estimate.value).to.equal(300);
     });
+  });
 
+  describe('#toJSON', () => {
     it('converts to json', () => {
       expect(estimate.toJSON()).to.deep.equal({value: 300});
     });
   });
 
   describe('#update', () => {
-
     it('updates value and distribution values', () => {
       estimate.update(20);
       expect(estimate.value).to.equal(20);

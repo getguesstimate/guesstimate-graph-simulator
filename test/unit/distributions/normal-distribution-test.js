@@ -1,5 +1,6 @@
-import NormalDistribution from '../../../src/distributions/normal-distribution';
 import _ from 'lodash';
+
+import NormalDistribution from '../../../src/distributions/normal-distribution';
 
 describe('NormalDistribution', () => {
   var distribution;

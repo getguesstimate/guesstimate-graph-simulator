@@ -1,7 +1,8 @@
 import _ from 'lodash';
+
 import BaseDistribution from './base-distribution';
 
-class PointDistribution extends BaseDistribution {
+module.exports = class PointDistribution extends BaseDistribution {
   constructor(options) {
     super(options);
     this.type = 'point';
@@ -10,6 +11,4 @@ class PointDistribution extends BaseDistribution {
   sample() {
     return this.value;
   }
-}
-
-module.exports = PointDistribution;
+};
