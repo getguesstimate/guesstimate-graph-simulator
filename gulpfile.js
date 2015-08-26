@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var nodeDebug = require('gulp-node-debug');
+
 var $ = require('gulp-load-plugins')({
   replaceString: /^gulp(-|\.)([0-9]+)?/
 });
@@ -16,10 +18,15 @@ const mainFile          = manifest.main;
 const destinationFolder = path.dirname(mainFile);
 const exportFileName    = path.basename(mainFile, path.extname(mainFile));
 
+function handleError(err) {
+    console.log(err.toString());
+    this.emit('end');
+}
+
 function test() {
-  return gulp.src(['test/setup/node.js', 'test/unit/**/*.js'], {read: false})
+  return gulp.src(['test/setup/node.js', 'test/unit/**/*.js', 'test/integration/**/*.js'], {read: false})
     .pipe($.plumber())
-    .pipe($.mocha({reporter: 'dot', globals: config.mochaGlobals}));
+    .pipe($.mocha({reporter: 'spec', globals: config.mochaGlobals}).on("error", handleError));
 }
 
 // Remove the build files
@@ -114,5 +121,10 @@ gulp.task('test', ['lint-src', 'lint-test'], function() {
   return test();
 });
 
-// An alias of test
+gulp.task('live', ['test'], function() {
+  gulp.watch(['src/**/*.js','test/**/*.js'], function() {
+    gulp.run('test');
+  });
+});
+
 gulp.task('default', ['test']);

@@ -30,6 +30,7 @@
     "del": "^1.2.1",
     "eslint": "^1.2.1",
     "esperanto": "^0.7.4",
+    "gen-uid": "^0.0.2",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
     "gulp-eslint": "^1.0.0",
@@ -38,6 +39,7 @@
     "gulp-istanbul": "^0.10.0",
     "gulp-load-plugins": "^0.10.0",
     "gulp-mocha": "^2.0.0",
+    "gulp-node-debug": "0.0.3",
     "gulp-plumber": "^1.0.0",
     "gulp-rename": "^1.2.0",
     "gulp-sourcemaps": "^1.5.0",
@@ -46,7 +48,8 @@
     "mkdirp": "^0.5.0",
     "mocha": "^2.2.1",
     "sinon": "^1.14.1",
-    "sinon-chai": "^2.7.0"
+    "sinon-chai": "^2.7.0",
+    "stochator": "^0.4.0"
   },
   "to5BoilerplateOptions": {
     "entryFileName": "repo_graph",
