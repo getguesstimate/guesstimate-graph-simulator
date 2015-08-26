@@ -29,17 +29,6 @@ function test() {
     .pipe($.mocha({reporter: 'spec', globals: config.mochaGlobals}).on("error", handleError));
 }
 
-gulp.task('debugTest', function() {
-  var mochaScript = path.join(__dirname, 'node_modules/mocha/bin/_mocha');
-
-  gulp.src(['test/setup/node.js', 'test/unit/**/*.js'])
-    .pipe(nodeDebug({
-      debugBrk: true,
-      script: ['--watch'],
-    }));
-
-});
-
 // Remove the build files
 gulp.task('clean', function(cb) {
   del([destinationFolder], cb);
@@ -133,7 +122,7 @@ gulp.task('test', ['lint-src', 'lint-test'], function() {
 });
 
 gulp.task('live', ['test'], function() {
-  gulp.watch(['src/*.js', 'src/distributions/*.js', 'test/*.js', 'test/integration/*.js', 'test/unit/*.js', 'test/unit/distributions/*.js'], function() {
+  gulp.watch(['src/**/*.js','test/**/*.js'], function() {
     gulp.run('test');
   });
 });
