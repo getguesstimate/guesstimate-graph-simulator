@@ -2,6 +2,8 @@ import Simulator from '../../src/simulator';
 import functionOperations from '../../src/lib/function_operations';
 import PointDistribution from '../../src/distributions/point-distribution';
 import ArrayDistribution from '../../src/distributions/array-distribution';
+import NormalDistribution from '../../src/distributions/normal-distribution';
+
 import _ from 'lodash';
 
 describe('Simulator', () => {
@@ -33,6 +35,19 @@ describe('Simulator', () => {
 
       expect(resultDistribution).to.be.an.instanceOf(ArrayDistribution);
       expect(resultDistribution.value).to.deep.equal([3,3,3,3,3]);
+    });
+
+    it('adds normal distributions', () => {
+      let inputs = [
+        new NormalDistribution({mean: 10, stdev: 3, seed: 'STOCHATOR'}),
+        new NormalDistribution({mean: 15, stdev: 1, seed: 'STOCHATOR'})
+      ];
+      let operation = functionOperations.addition;
+      let simulator = new Simulator({inputs: inputs, operation: operation, samples: 5});
+      let resultDistribution = simulator.run();
+
+      expect(resultDistribution).to.be.an.instanceOf(ArrayDistribution);
+      expect(resultDistribution.value.map(n => _.round(n, 2))).to.deep.equal([24.03, 31.81, 27.71, 17.22, 26.01]);
     });
   });
 });
