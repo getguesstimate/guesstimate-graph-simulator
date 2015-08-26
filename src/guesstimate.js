@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import PointDistribution from './distributions/point-distribution';
 import ArrayDistribution from './distributions/array-distribution';
+import NormalDistribution from './distributions/normal-distribution';
 
 import Funct from './funct';
 import Estimate from './estimate';
@@ -29,6 +30,8 @@ class Guesstimate {
       return PointDistribution;
     case 'array':
       return ArrayDistribution;
+    case 'normal':
+      return NormalDistribution;
     default:
       return PointDistribution;
     }
