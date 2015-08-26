@@ -104,7 +104,7 @@ gulp.task('build', ['lint-src', 'clean'], function(done) {
 
 gulp.task('coverage', ['lint-src', 'lint-test'], function(done) {
   require('babel/register')({ modules: 'common' });
-  gulp.src(['src/*.js'])
+  gulp.src(['src/**/*.js'])
     .pipe($.plumber())
     .pipe($.istanbul({ instrumenter: isparta.Instrumenter }))
     .pipe($.istanbul.hookRequire())
