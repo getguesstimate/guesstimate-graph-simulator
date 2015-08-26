@@ -1,46 +1,55 @@
 import Funct from '../../src/funct';
-import Distribution from '../../src/distributions/point-distribution';
+import Guesstimate from '../../src/guesstimate';
+import PointDistribution from '../../src/distributions/point-distribution';
 import _ from 'lodash';
 
 describe('Function', () => {
-  var funct;
-  const distribution = new Distribution({value: [300]});
-
-  const options = {
+  var guesstimate, funct;
+  const distribution = new PointDistribution({value: [300]});
+  const functOptions = {
     distribution: distribution,
     inputs: ['234', '3455'],
     function_type: 'addition'
   };
+  const guesstimateOptions = {
+    distribution: {
+      type: 'point', value: 300
+    },
+    funct: functOptions
+  };
 
   beforeEach(() => {
-    funct = new Funct(options);
+    guesstimate = new Guesstimate(guesstimateOptions);
+    funct = guesstimate.funct;
   });
 
   describe('#constructor', () => {
-    it('has distribution, inputs, and function_type', () => {
-      expect(funct.distribution).to.deep.equal(options.distribution);
-      expect(funct.inputs).to.equal(options.inputs);
-      expect(funct.function_type).to.equal(options.function_type);
+    it('has inputs, and function_type', () => {
+      expect(funct.inputs).to.equal(functOptions.inputs);
+      expect(funct.function_type).to.equal(functOptions.function_type);
     });
 
     it('converts to json', () => {
-      const expecting = _.pick(options, 'inputs', 'function_type');
+      const expecting = _.pick(functOptions, 'inputs', 'function_type');
       expect(funct.toJSON()).to.deep.equal(expecting);
     });
   });
 
   describe('#analyze', function() {
     it('updates its distribution', () => {
-      let distributions = [new Distribution({value: [5]}), new Distribution({value: [23]})];
+      let distributions = [new PointDistribution({value: 5}), new PointDistribution({value: 23})];
       funct.analyze(distributions);
-      expect(funct.distribution.value).to.deep.equal([28]);
+      expect(guesstimate.distribution.value).to.deep.equal(28);
     });
   });
 
   describe('#_calculateDistribution', function() {
     it('adds distributions', () => {
-      let distributions = [new Distribution({value: [5]}), new Distribution({value: [23]})];
-      expect(funct._calculateDistribution(distributions)).to.deep.equal([28]);
+      let distributions = [new PointDistribution({value: 5}), new PointDistribution({value: 23})];
+      let outputDistribution = funct._calculateDistribution(distributions);
+
+      expect(outputDistribution).to.be.an.instanceOf(PointDistribution);
+      expect(outputDistribution.value).to.equal(28);
     });
   });
 

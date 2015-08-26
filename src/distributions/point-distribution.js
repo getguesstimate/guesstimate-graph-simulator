@@ -6,6 +6,10 @@ class PointDistribution extends BaseDistribution {
     super(options);
     this.type = 'point';
   }
+
+  sample() {
+    return this.value;
+  }
 }
 
 module.exports = PointDistribution;

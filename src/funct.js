@@ -5,10 +5,8 @@ import functionOperations from './lib/function_operations';
 class Funct {
   constructor(options) {
     this.guesstimate = options.guesstimate;
-    this.distribution = options.distribution;
     this.inputs = options.inputs || [];
     this.function_type = options.function_type || 'addition';
-    this.simulator = new Simulator({samples: 5});
   }
 
   toJSON() {
@@ -16,8 +14,8 @@ class Funct {
   }
 
   analyze(distributions = this._findInputDistributions()) {
-    const value = this._calculateDistribution(distributions);
-    this.distribution.value = value;
+    const output = this._calculateDistribution(distributions);
+    this.guesstimate.distribution = output;
   }
 
   _findInputDistributions() {
@@ -25,8 +23,8 @@ class Funct {
   }
 
   _calculateDistribution(distributions, analyzeOptions = this.defaultAnalyzeOptions()) {
-    const inputs = distributions.map(n => n.value);
-    return this.simulator.run(inputs, this._functionType());
+    let simulation = new Simulator({inputs: distributions, operation: this._functionType()});
+    return simulation.run();
   }
 
   defaultAnalyzeOptions() {
