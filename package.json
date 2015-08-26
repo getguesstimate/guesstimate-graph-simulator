@@ -24,8 +24,6 @@
   },
   "homepage": "https://github.com/getguesstimate/guesstimate-graph-simulator.git/issues",
   "devDependencies": {
-    "ampersand-model": "^5.0.3",
-    "ampersand-collection": "^1.4.5",
     "babel": "^5.8.21",
     "babel-eslint": "^4.0.10",
     "chai": "^3.2.0",

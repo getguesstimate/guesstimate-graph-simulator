@@ -3,6 +3,7 @@ import _ from 'lodash';
 import functionOperations from './lib/function_operations';
 import Simulator from './simulator';
 
+// I wanted to use Function, but Function was already taken.
 module.exports = class Funct {
   constructor(options) {
     this.guesstimate = options.guesstimate;

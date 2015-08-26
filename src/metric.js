@@ -11,6 +11,7 @@ module.exports = class Metric {
     this.page = options.page;
   }
 
+  // For now, each metric only has one guesstimate.  This will change.
   distribution() {
     return this.guesstimates[0].distribution;
   }

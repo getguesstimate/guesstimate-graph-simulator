@@ -27,25 +27,25 @@ describe('Page', () => {
     beingMetric = _.filter(page.metrics, 'id', '128')[0];
   });
 
-  describe('metric', () => {
+  describe('Metric', () => {
     describe('#_analyze', () => {
       it("updates the metric's distribution", () => {
         animalMetric._analyze();
-        expect(animalMetric.distribution().value).to.deep.equal(800);
+        expect(animalMetric.distribution().value).to.equal(800);
       });
     });
 
     describe('#propagate', () => {
       it("updates animal and beings' metric distribution", () => {
         animalMetric.propagate();
-        expect(animalMetric.distribution().value).to.deep.equal(800);
-        expect(beingMetric.distribution().value).to.deep.equal(1300);
+        expect(animalMetric.distribution().value).to.equal(800);
+        expect(beingMetric.distribution().value).to.equal(1300);
       });
     });
   });
 
 
-  describe('funct', () => {
+  describe('Funct', () => {
     describe('#findInputDistributions', () => {
       it('finds the correct distributions', () => {
         let funct = animalMetric.guesstimates[0].funct;

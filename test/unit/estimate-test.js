@@ -5,7 +5,7 @@ import _ from 'lodash';
 describe('Estimate', () => {
   var estimate;
   const distribution = new Distribution({value: 300});
-  const options = {distribution: distribution, value: 300 };
+  const options = {distribution: distribution, value: 300};
 
   beforeEach(() => {
     estimate = new Estimate(options);

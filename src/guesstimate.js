@@ -19,7 +19,7 @@ module.exports = class Guesstimate {
 
   toJSON() {
     const options = {distribution: this.distribution.toJSON()};
-    const [type, foobar] = this._findType(this);
+    const [type, ] = this._findType(this);
     options[type] = this[type].toJSON();
     return options;
   }
