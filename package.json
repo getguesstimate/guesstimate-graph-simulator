@@ -30,7 +30,6 @@
     "del": "^1.2.1",
     "eslint": "^1.2.1",
     "esperanto": "^0.7.4",
-    "gen-uid": "^0.0.2",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
     "gulp-eslint": "^1.0.0",
@@ -48,12 +47,11 @@
     "mkdirp": "^0.5.0",
     "mocha": "^2.2.1",
     "sinon": "^1.14.1",
-    "sinon-chai": "^2.7.0",
-    "stochator": "^0.4.0"
+    "sinon-chai": "^2.7.0"
   },
   "to5BoilerplateOptions": {
-    "entryFileName": "repo_graph",
-    "exportVarName": "GuesstimateGraphSimulator",
+    "entryFileName": "page.js",
+    "exportVarName": "GusstimatePage",
     "mochaGlobals": [
       "stub",
       "spy",
@@ -62,7 +60,9 @@
   },
   "dependencies": {
     "backbone": "1.2.2",
+    "gen-uid": "^0.0.2",
+    "lodash": "^3.10.1",
     "numeral": "^1.5.3",
-    "lodash": "^3.10.1"
+    "stochator": "^0.4.0"
   }
 }
