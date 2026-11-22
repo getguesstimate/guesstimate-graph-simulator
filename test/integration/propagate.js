@@ -21,10 +21,10 @@ describe('Page', () => {
 
   beforeEach(() => {
     page = new Page(json);
-    animalMetric = _.filter(page.metrics, 'id', '126')[0];
-    catMetric = _.filter(page.metrics, 'id', '124')[0];
-    dogMetric = _.filter(page.metrics, 'id', '125')[0];
-    beingMetric = _.filter(page.metrics, 'id', '128')[0];
+    animalMetric = _.find(page.metrics, ['id', '126']);
+    catMetric = _.find(page.metrics, ['id', '124']);
+    dogMetric = _.find(page.metrics, ['id', '125']);
+    beingMetric = _.find(page.metrics, ['id', '128']);
   });
 
   describe('Metric', () => {
