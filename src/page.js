@@ -12,7 +12,7 @@ module.exports = class Page {
   }
 
   metricIdToDistribution(metricId) {
-    return _.filter(this.metrics, 'id', metricId)[0].distribution();
+    return _.find(this.metrics, ['id', metricId]).distribution();
   }
 
   metricIdToOutputs(metricId) {

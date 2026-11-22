@@ -61,8 +61,8 @@
   "dependencies": {
     "backbone": "1.2.2",
     "gen-uid": "^0.0.2",
-    "lodash": "^3.10.1",
+    "lodash": "^4.18.1",
     "numeral": "^1.5.3",
-    "stochator": "^0.4.0"
+    "stochator": "^0.6.2"
   }
 }

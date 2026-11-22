@@ -12,7 +12,7 @@ module.exports = class Simulator {
   }
 
   run() {
-    const all_single = (_.every(this.inputs, 'type', 'point'));
+    const all_single = (_.every(this.inputs, ['type', 'point']));
     return all_single ? this._runPoint() : this._runRegular();
   }
 
